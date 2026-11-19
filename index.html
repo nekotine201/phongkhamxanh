@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng khám chuyên khoa da liễu xanh - Sắp ra mắt</title>
+    <!-- Tailwind CSS cho thiết kế giao diện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            /* Hình nền vạch pattern nhẹ nhàng tạo cảm giác y khoa */
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#dcfce7 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-slate-800">
+
+    <div class="max-w-5xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up border border-medical-100">
+        
+        <!-- Cột Nội dung -->
+        <div class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+            
+            <div class="inline-block bg-medical-100 text-medical-700 font-semibold px-4 py-1.5 rounded-full text-sm mb-6 w-max border border-medical-500/20">
+                🌱 Sắp ra mắt
+            </div>
+
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-slate-900">
+                Phòng khám chuyên khoa <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-medical-500 to-medical-700">Da liễu xanh</span>
+            </h1>
+            
+            <p class="text-slate-500 text-lg mb-8">
+                Website của chúng tôi đang trong quá trình hoàn thiện. Chúng tôi sẽ mang đến cho bạn trải nghiệm chăm sóc da toàn diện và tốt nhất trong vài ngày tới!
+            </p>
+
+            <!-- Khung đếm ngược -->
+            <div class="grid grid-cols-4 gap-3 md:gap-4 mb-8">
+                <div class="bg-medical-50 border border-medical-100 rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm">
+                    <span id="days" class="text-3xl font-bold text-medical-600">00</span>
+                    <span class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Ngày</span>
+                </div>
+                <div class="bg-medical-50 border border-medical-100 rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm">
+                    <span id="hours" class="text-3xl font-bold text-medical-600">00</span>
+                    <span class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Giờ</span>
+                </div>
+                <div class="bg-medical-50 border border-medical-100 rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm">
+                    <span id="minutes" class="text-3xl font-bold text-medical-600">00</span>
+                    <span class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Phút</span>
+                </div>
+                <div class="bg-medical-50 border border-medical-100 rounded-2xl p-3 flex flex-col items-center justify-center shadow-sm">
+                    <span id="seconds" class="text-3xl font-bold text-medical-600">00</span>
+                    <span class="text-xs font-medium text-slate-500 mt-1 uppercase tracking-wider">Giây</span>
+                </div>
+            </div>
+
+            <div class="text-sm text-slate-400">
+                Theo dõi chúng tôi để cập nhật thông tin mới nhất.
+            </div>
+        </div>
+
+        <!-- Cột Hình ảnh Mascot -->
+        <div class="w-full md:w-1/2 bg-gradient-to-br from-medical-50 to-medical-100 flex items-center justify-center p-8 relative overflow-hidden">
+            <!-- Hình khối trang trí phía sau -->
+            <div class="absolute w-64 h-64 bg-medical-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 top-10 left-10"></div>
+            <div class="absolute w-64 h-64 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 bottom-10 right-10"></div>
+            
+            <img 
+                src="https://tascusfood.com/Dermatology%20Mascot%20Under%20Construction.webp" 
+                alt="Dermatology Mascot" 
+                class="relative z-10 w-full max-w-sm h-auto drop-shadow-2xl animate-float object-contain"
+                onerror="this.src='https://placehold.co/400x400/dcfce7/16a34a?text=Mascot+Placeholder'"
+            >
+        </div>
+    </div>
+
+    <script>
+        // Thiết lập thời gian đích là 7 ngày kể từ bây giờ
+        const countdownTime = 7 * 24 * 60 * 60 * 1000;
+        const targetDate = new Date().getTime() + countdownTime;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Tính toán thời gian
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Cập nhật DOM với số luôn có 2 chữ số (VD: 09 thay vì 9)
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            // Xử lý khi đếm ngược kết thúc
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }
+
+        // Cập nhật lần đầu ngay lập tức
+        updateCountdown();
+        
+        // Thiết lập Interval lặp lại mỗi 1 giây
+        const timerInterval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
