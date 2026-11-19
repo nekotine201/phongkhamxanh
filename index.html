@@ -112,9 +112,8 @@
     </div>
 
     <script>
-        // Thiết lập thời gian đích là 7 ngày kể từ bây giờ
-        const countdownTime = 7 * 24 * 60 * 60 * 1000;
-        const targetDate = new Date().getTime() + countdownTime;
+        // Thiết lập thời gian đích cố định: 00:00:00 Ngày 26/11/2026 (7 ngày sau 19/11/2026)
+        const targetDate = new Date("2026-11-26T00:00:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
